@@ -7,25 +7,30 @@ function addEmployeeCard(name, position) {
     const heading = document.createElement('h3');
     heading.textContent = name;
 
-    const paragragh = document.createElement('h3');
-    paragragh.textContent = position;
+    const paragraph = document.createElement('h3');
+    paragraph.textContent = position;
 
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
 
     // appending elements to the card
     card.appendChild(heading);
-    card.appendChild(paragragh);
+    card.appendChild(paragraph);
     card.appendChild(removeButton);
 
     // appending card to employee container
     document.getElementById('employeeContainer').appendChild(card);
 
     // remove functionality
-    removeButton.addEventListener('click', function() {
+    removeButton.addEventListener('click', function(event) {
+        // task 4
+        if (event.target.className === 'employee-card') {
+            console.log('Employee card has been clicked')
+        }
+        event.stopPropagation();
         card.remove();
     });
-};
+}
 
 // example employees
 addEmployeeCard('Ed', 'Tester');
