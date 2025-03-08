@@ -1,21 +1,25 @@
 // task 2
 function addEmployeeCard(name, position) {
-
+// main employee card container
     const card = document.createElement('div');
-    card.setAttribute('class', 'employee-card');
+    card.setAttribute('class', 'employee-card'); // class for style
 
-    const heading = document.createElement('h3');
+    const heading = document.createElement('h3'); // name as heading
     heading.textContent = name;
 
-    const paragraph = document.createElement('h3');
+    const paragraph = document.createElement('h3'); // position is a paragragh
     paragraph.textContent = position;
 
-    const removeButton = document.createElement('button');
+    const removeButton = document.createElement('button'); // making remove button
     removeButton.textContent = 'Remove';
+
+    const editButton = document.createElement('button'); // makeing edit button - task 5
+    editButton.textContent = 'Edit';
 
     // appending elements to the card
     card.appendChild(heading);
     card.appendChild(paragraph);
+    card.appendChild(editButton);
     card.appendChild(removeButton);
 
     // appending card to employee container
@@ -24,9 +28,7 @@ function addEmployeeCard(name, position) {
     // remove functionality
     removeButton.addEventListener('click', function(event) {
         // task 4
-        if (event.target.className === 'employee-card') {
-            console.log('Employee card has been clicked')
-        }
+        console.log('Remove button has been clicked');
         event.stopPropagation();
         card.remove();
     });
@@ -41,7 +43,8 @@ function addEmployeeCard(name, position) {
 
         const saveButton = document.createElement('button');
         saveButton.textContent = 'Save';
-
+        card.appendChild(positionInput);
+        
         // appending new functions
         card.innerHTML = '';
         card.appendChild(nameInput);
@@ -59,7 +62,7 @@ function addEmployeeCard(name, position) {
             card.appendChild(paragraph);
             card.appendChild(editButton);
             card.appendChild(removeButton);
-        });
+        }); // event listener for save button and inner text appending
     });
 }
 
@@ -75,8 +78,8 @@ function bulkUpdateEmployeeCards() {
 
     cardArray.forEach(card => {
         card.style.backgroundColor = 'lightgreen';
-    });
-};
+    }); // function for bulk updating to cards
+}
 
 // activating bulk update function
 bulkUpdateEmployeeCards();
