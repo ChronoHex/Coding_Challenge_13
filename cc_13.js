@@ -21,6 +21,7 @@ function addEmployeeCard(name, position) {
     card.appendChild(paragraph);
     card.appendChild(editButton);
     card.appendChild(removeButton);
+    card.appendChild(editButton);
 
     // appending card to employee container
     document.getElementById('employeeContainer').appendChild(card);
@@ -36,21 +37,21 @@ function addEmployeeCard(name, position) {
     // task 5
     editButton.addEventListener('click', function() {
         const nameInput = document.createElement('input');
+        nameInput.setAttribute('type', 'text')
         nameInput.value = heading.textContent;
 
         const positionInput = document.createElement('input');
+        positionInput.setAttribute('type','text');
         positionInput.value = paragraph.textContent;
 
         const saveButton = document.createElement('button');
         saveButton.textContent = 'Save';
-        card.appendChild(positionInput);
         
         // appending new functions
         card.innerHTML = '';
         card.appendChild(nameInput);
-        card.appendChild(position);
+        card.appendChild(positionInput);
         card.appendChild(saveButton);
-        card.appendChild(removeButton);
 
         // save button listener
         saveButton.addEventListener('click', function() {
